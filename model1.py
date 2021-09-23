@@ -78,11 +78,7 @@ class Model(nn.Module):
                                       kernel_size= 3, padding= 1),
                             nn.Tanh()())
 
-                #64改成2048，但不对
-                #要有池化和mlp才是CNN
-                #可能是encoder采用resnet而不是单纯卷积的原因
-                #我的模型还是改成卷积+全连接的简单形式
-
+                
     def reparametrize(self, mu, logvar):
         std = logvar.mul(0.5).exp_()
         if torch.cuda.is_available():
